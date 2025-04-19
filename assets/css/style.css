@@ -1,0 +1,13 @@
+/* Global styles */
+
+body {
+    font-family: "Roboto", serif;
+    background-color: #f2f7f4;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Bebas Neue", sans-serif;
+    color: #252625;
+}
