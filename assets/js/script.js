@@ -1,3 +1,5 @@
+// Daily trackers
+
 const container = document.getElementById("tracker-container");
 
 for (let day = 1; day <= 75; day++) {
@@ -35,6 +37,8 @@ for (let day = 1; day <= 75; day++) {
     input.className = "form-check-input";
     input.id = id;
 
+    input.addEventListener("change", updateProgressBar);
+
     const label = document.createElement("label");
     label.className = "form-check-label";
     label.setAttribute("for", id);
@@ -49,3 +53,28 @@ for (let day = 1; day <= 75; day++) {
   col.appendChild(card);
   container.appendChild(col);
 }
+
+// Progress bar
+
+function updateProgressBar() {
+    let completedDays = 0;
+  
+    for (let day = 1; day <= 75; day++) {
+      const allTasks = Array.from({ length: 6 }, (_, i) => document.getElementById(`day${day}-task${i + 1}`));
+      const isComplete = allTasks.every(task => task.checked);
+  
+      if (isComplete) {
+        completedDays++;
+      }
+    }
+  
+    const progressBar = document.getElementById("progress-bar");
+    const progressLabel = document.getElementById("progress-label");
+    const daysLeft = document.getElementById("days-left");
+  
+    const percent = (completedDays / 75) * 100;
+    progressBar.style.width = `${percent}%`;
+    progressBar.setAttribute("aria-valuenow", completedDays);
+    progressLabel.textContent = `${completedDays} days completed`;
+    daysLeft.textContent = `${75 - completedDays} days to go`;
+  }
