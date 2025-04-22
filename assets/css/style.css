@@ -80,3 +80,24 @@ h4 {
     background-color: #495956;
     border-color: #495956;
 }
+
+
+/* Modals */
+
+.btn-success {
+    background-color: #495956;
+}
+
+.btn-success:hover {
+    background-color: #252d2b;
+}
+
+.btn-confirm {
+    background-color: #495956;
+    color: #fff;
+}
+
+.btn-confirm:hover {
+    background-color: #252d2b;
+    color: #fff;
+}

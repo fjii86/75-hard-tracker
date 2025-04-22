@@ -13,7 +13,7 @@ for (let day = 1; day <= 75; day++) {
   const body = document.createElement("div");
   body.className = "card-body";
 
-  const title = document.createElement("h4");
+  const title = document.createElement("h3");
   title.className = "card-title";
   title.textContent = `Day ${day}`;
 
