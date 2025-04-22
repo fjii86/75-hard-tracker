@@ -54,8 +54,8 @@
                       </div>
                 </div>
                 <div class="col">
-                  <a href="https://andyfrisella.com/pages/75hard-info" target="_blank" aria-label="Read about the 75 Hard Challenge (opens in a new tab)">About 75 Hard</a><br>
-                    Start Over<br>
+                    <a href="https://andyfrisella.com/pages/75hard-info" target="_blank" aria-label="Read about the 75 Hard Challenge (opens in a new tab)">About 75 Hard</a><br>
+                    <a href="#" id="startOverLink">Start Over</a><br>
                     Log Out<br>
                 </div>
               </div>
@@ -73,7 +73,7 @@
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Congrats Modal -->
     <div class="modal fade" id="congratsModal" tabindex="-1" aria-labelledby="congratsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center">
@@ -85,6 +85,25 @@
                 </div>
                 <div class="modal-footer border-0 justify-content-center">
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Keep Going</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Reset Modal -->
+    <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title w-100" id="resetModalLabel">Start Over?</h5>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to reset your progress?
+                    <br>This action cannot be undone.
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button id="confirmReset" type="button" class="btn btn-danger">Yes, Reset</button>
                 </div>
             </div>
         </div>

@@ -55,7 +55,7 @@ for (let day = 1; day <= 75; day++) {
   container.appendChild(col);
 }
 
-// Progress bar and modal
+// Progress bar and congrats modal
 
 let completedDays = 0;
 let previouslyCompleted = new Set();
@@ -84,3 +84,29 @@ function updateProgressBar() {
   document.getElementById("progress-label").textContent = `${currentCompleted} days completed`;
   document.getElementById("days-left").textContent = `${75 - currentCompleted} days to go`;
 }
+
+// Reset modal
+
+const resetModal = new bootstrap.Modal(document.getElementById("resetModal"));
+const startOverLink = document.getElementById("startOverLink");
+const confirmResetBtn = document.getElementById("confirmReset");
+
+startOverLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  resetModal.show();
+});
+
+confirmResetBtn.addEventListener("click", () => {
+  // Uncheck all checkboxes
+  const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+  allCheckboxes.forEach(checkbox => checkbox.checked = false);
+
+  // Clear previously completed
+  previouslyCompleted.clear();
+
+  // Update progress bar
+  updateProgressBar();
+
+  // Hide modal
+  resetModal.hide();
+});
