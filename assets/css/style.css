@@ -7,7 +7,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: "Bebas Neue", sans-serif;
     color: #495956;
 }
@@ -33,6 +34,12 @@ h3 {
 .progress-bar {
     background-color: #495956;
 }
+
+.progress-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
 
 /* Icons */
 
@@ -68,4 +75,8 @@ h3 {
 
 /* Main */
 
-
+/* Color for checked boxes */
+.form-check-input:checked {
+    background-color: #495956;
+    border-color: #495956;
+}

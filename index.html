@@ -24,11 +24,12 @@
 
      <section id="header">
         <div class="container-fluid text-center headercontainer">
-            <div class="row align-items-center">
-                <div class="col">
+            <div class="row flex-column flex-md-row align-items-center">
+                <!-- Left column is placed as nr. 2 on small screens -->
+                <div class="col order-2 order-md-1">
                     <h3>Welcome Frida</h3>
                     <div class="icons">
-                        <div class="icon-row">
+                        <div class="icon-row d-flex justify-content-center gap-4">
                           <div class="icon-wrapper">
                             <i class="fa-solid fa-camera fa-xl"></i>
                             <p>Progress Photos</p>
@@ -40,10 +41,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <!-- Center column is placed at top on small screens -->
+                <div class="col order-1 order-md-2">
                     <h1>75 Hard Habit Tracker</h1>
                     <!-- Progress bar-->
-                    <div class="my-4">
+                    <div class="my-4 progress-wrapper">
                         <div class="d-flex justify-content-between">
                           <span id="progress-label">0 days completed</span>
                           <span id="days-left">75 days to go</span>
@@ -53,7 +55,8 @@
                         </div>
                       </div>
                 </div>
-                <div class="col">
+                <!-- Right column is placed as nr. 3 on small screens -->
+                <div class="col order-3 order-md-3">
                     <a href="https://andyfrisella.com/pages/75hard-info" target="_blank" aria-label="Read about the 75 Hard Challenge (opens in a new tab)">About 75 Hard</a><br>
                     <a href="#" id="startOverLink">Start Over</a><br>
                     Log Out<br>
