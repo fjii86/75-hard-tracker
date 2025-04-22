@@ -1,6 +1,7 @@
 // Daily trackers
 
 const container = document.getElementById("tracker-container");
+const congratsModal = new bootstrap.Modal(document.getElementById("congratsModal"));
 
 for (let day = 1; day <= 75; day++) {
   const col = document.createElement("div");
@@ -54,27 +55,32 @@ for (let day = 1; day <= 75; day++) {
   container.appendChild(col);
 }
 
-// Progress bar
+// Progress bar and modal
+
+let completedDays = 0;
+let previouslyCompleted = new Set();
 
 function updateProgressBar() {
-    let completedDays = 0;
-  
-    for (let day = 1; day <= 75; day++) {
-      const allTasks = Array.from({ length: 6 }, (_, i) => document.getElementById(`day${day}-task${i + 1}`));
-      const isComplete = allTasks.every(task => task.checked);
-  
-      if (isComplete) {
-        completedDays++;
+  let currentCompleted = 0;
+
+  for (let day = 1; day <= 75; day++) {
+    const tasks = Array.from({ length: 6 }, (_, i) => document.getElementById(`day${day}-task${i + 1}`));
+    const isComplete = tasks.every(task => task.checked);
+
+    if (isComplete) {
+      currentCompleted++;
+      if (!previouslyCompleted.has(day)) {
+        // Show modal for newly completed day
+        congratsModal.show();
+        previouslyCompleted.add(day);
       }
+    } else {
+      previouslyCompleted.delete(day); // Reset if a box is unchecked later
     }
-  
-    const progressBar = document.getElementById("progress-bar");
-    const progressLabel = document.getElementById("progress-label");
-    const daysLeft = document.getElementById("days-left");
-  
-    const percent = (completedDays / 75) * 100;
-    progressBar.style.width = `${percent}%`;
-    progressBar.setAttribute("aria-valuenow", completedDays);
-    progressLabel.textContent = `${completedDays} days completed`;
-    daysLeft.textContent = `${75 - completedDays} days to go`;
   }
+
+  const percent = (currentCompleted / 75) * 100;
+  document.getElementById("progress-bar").style.width = `${percent}%`;
+  document.getElementById("progress-label").textContent = `${currentCompleted} days completed`;
+  document.getElementById("days-left").textContent = `${75 - currentCompleted} days to go`;
+}
