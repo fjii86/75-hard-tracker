@@ -9,15 +9,29 @@ h1,
 h2,
 h3 {
     font-family: "Bebas Neue", sans-serif;
-    color: #252625;
+    color: #495956;
 }
 
 /* Header */
 
 .headercontainer {
     padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: #fff; /* Color to see the container during development */
+    margin: 0.5rem 0.5rem;
+    background-color: #f2e7dd; 
+    border: 2px solid #495956;
+    border-radius: 4rem;
+}
+
+.headercontainer a {
+    color: #495956;
+}
+
+.headercontainer a:hover {
+    color: #252d2b;
+}
+
+.progress-bar {
+    background-color: #495956;
 }
 
 /* Icons */
@@ -45,6 +59,7 @@ h3 {
   .icon-wrapper i {
     font-size: 35px;
     margin-bottom: 0.3rem;
+    color:#495956;
   }
 
   .icon-wrapper p {
